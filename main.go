@@ -92,6 +92,7 @@ func (r *JsonTaskRepository) Add(description string) (*Task, error) {
 	return &task, r.save()
 
 }
+
 func (r *JsonTaskRepository) Update(id int, description string) error {
 	for i, t := range r.tasks {
 		if t.ID == id {
@@ -123,6 +124,7 @@ func (r *JsonTaskRepository) MarkInProgress(id int) error {
 
 	return r.save()
 }
+
 func (r *JsonTaskRepository) MarkDone(id int) error {
 
 	for i, t := range r.tasks {
@@ -149,7 +151,6 @@ func main() {
 
 	command := os.Args[1]
 	args := os.Args[2:]
-
 
 	switch command {
 	case "add":
